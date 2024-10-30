@@ -4,13 +4,22 @@ import initialCats from "./initial-cats";
 
 const App = () => {
   const [cats, setCats] = useState(initialCats);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+  const [image, setImage] = useState("");
+  const [interests, setInterests] = useState("");
 
   const catItems = cats.map((cat, idx) => <CatItem key={idx} cat={cat} />);
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-indigo-50">
       <div className="flex flex-col items-center w-full max-w-2xl">
-        <form className="bg-slate-50 rounded-lg overflow-clip shadow-lg">
+        <form
+          className="bg-slate-50 rounded-lg overflow-clip shadow-lg"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div className="bg-purple-600 text-white text-center py-2 text-xl">
             Create a Cat Profile
           </div>
@@ -20,10 +29,13 @@ const App = () => {
                 Name
               </label>
               <input
+                required
                 id="name"
                 className="m-2 p-2 rounded-md text-sm border border-200 flex-1"
                 type="text"
                 placeholder="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="flex">
@@ -32,6 +44,11 @@ const App = () => {
                   Age
                 </label>
                 <input
+                  min={1}
+                  max={25}
+                  required
+                  value={age}
+                  onChange={(e) => setAge(Number(e.target.value))}
                   id="age"
                   className="m-2 w-14 p-2 rounded-md text-sm border border-200"
                   placeholder="age"
@@ -43,10 +60,13 @@ const App = () => {
                   Image
                 </label>
                 <input
+                  required
                   id="image"
                   className="m-2 p-2 rounded-md text-sm border border-200"
                   type="text"
                   placeholder="provide an image url"
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
                 />
               </div>
             </div>
@@ -54,8 +74,14 @@ const App = () => {
               Interests
             </label>
             <textarea
+              maxLength={80}
+              required
+              value={interests}
+              onChange={(e) => {
+                setInterests(e.target.value);
+              }}
               id="interests"
-              className="m-2 p-2 rounded-md text-sm"
+              className="max-h-20 m-2 p-2 rounded-md text-sm"
               row={3}
             />
           </div>
