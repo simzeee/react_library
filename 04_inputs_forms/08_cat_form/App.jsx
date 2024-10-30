@@ -18,6 +18,13 @@ const App = () => {
           className="bg-slate-50 rounded-lg overflow-clip shadow-lg"
           onSubmit={(e) => {
             e.preventDefault();
+            const newCat = { name, age, imageUrl: image, interests };
+            console.log(newCat);
+            setCats([...cats, newCat]);
+            setName("");
+            setAge(0);
+            setImage("");
+            setInterests("");
           }}
         >
           <div className="bg-purple-600 text-white text-center py-2 text-xl">
