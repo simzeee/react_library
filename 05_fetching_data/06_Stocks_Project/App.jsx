@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import StockItem from "./StockItem";
 
 const App = () => {
   const [stocks, setStocks] = useState([]);
@@ -15,17 +16,21 @@ const App = () => {
       });
   };
 
+  const stockItems = stocks.map((stock, idx) => (
+    <StockItem key={idx} stock={stock}></StockItem>
+  ));
+
   useEffect(() => {
     fetchStocks();
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-lg flex justify-center min-h-screen items-center">
+    <div className="flex justify-center bg-slate-50">
+      <div className="w-full max-w-md flex justify-center min-h-screen items-center">
         {isLoading ? (
           <i className="fa-duotone fa-spinner-third text-2xl text-blue-400 animate-spin"></i>
         ) : (
-          <div>todo</div>
+          <div className="flex flex-col w-full">{stockItems}</div>
         )}
       </div>
     </div>
