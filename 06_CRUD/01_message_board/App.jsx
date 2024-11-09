@@ -27,11 +27,27 @@ const App = () => {
     </div>
   ));
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ username, message: text });
+    fetch(
+      "https://api.react-formula.com/learning-api/demos/message-board/messages",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, message: text }),
+      }
+    ).then(() => {
+      fetchMessages();
+      setText("");
+    });
+  };
+
   return (
     <div className="flex justify-center">
       <div className="flex flex-col w-full max-w-xl ">
         {messageItems}
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             value={username}
             onChange={(e) => {
