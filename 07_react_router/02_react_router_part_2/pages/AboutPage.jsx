@@ -1,6 +1,9 @@
+import NavBar from "../shared/NavBar";
+
 const AboutPage = () => {
   return (
     <>
+      <NavBar />
       <div className="flex items-start justify-center min-h-screen bg-amber-50 font-opensans">
         <div className="flex flex-col flex-wrap items-center justify-center w-full max-w-5xl px-6">
           <img

@@ -1,6 +1,10 @@
+import NavBar from "../shared/NavBar";
+import { Link } from "react-router-dom";
+
 const HomePage = () => {
   return (
     <>
+      <NavBar />
       <div className="flex items-start justify-center min-h-screen bg-amber-50 font-opensans">
         <div className="flex flex-wrap items-center justify-center w-full max-w-5xl px-6 pt-24">
           <div className="my-20">
@@ -11,9 +15,14 @@ const HomePage = () => {
               Friendly cat lovers to watch over your feline friend while you are
               away
             </div>
-            <button className="px-20 py-3 my-8 text-xl font-medium text-white bg-green-800 rounded-full">
-              Sign In
-            </button>
+            <div className="my-4">
+              <Link
+                to="/sign-in"
+                className="px-20 py-3 my-8 text-xl font-medium text-white bg-green-800 rounded-full"
+              >
+                Sign In
+              </Link>
+            </div>
           </div>
           <img
             className="w-[420px] mx-4"

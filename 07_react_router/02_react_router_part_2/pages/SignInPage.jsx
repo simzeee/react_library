@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 const SignInPage = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-amber-50 font-opensans">
         <div className="flex flex-col items-center">
-          <img
-            className="w-32"
-            src="https://static-task-assets.react-formula.com/102167.png"
-          />
+          <Link to="/">
+            <img
+              className="w-32"
+              src="https://static-task-assets.react-formula.com/102167.png"
+            />
+          </Link>
           <div className="mt-2 text-3xl text-green-800 font-bubblegum">
             Carl's Cat Sitters
           </div>
