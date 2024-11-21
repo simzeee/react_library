@@ -1,5 +1,5 @@
 import PageOne from "./PageOne";
-import PageTwo from "./PageTwo";
+import PageTwo from "../PageTwo";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const App = () => {
