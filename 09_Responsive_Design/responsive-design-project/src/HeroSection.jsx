@@ -3,7 +3,7 @@ const HeroSection = () => {
     <div className="flex justify-center">
       <div className="w-full max-w-6xl flex flex-col-reverse md:flex-row items-center justify-center py-32 px-4">
         <div className="text-violet-800 text-4xl md:text-5xl font-ubuntu font-medium max-w-[450px]">
-          <div>
+          <div className="mb-2">
             Something <span className="text-yellow-500">Catchy</span> and{" "}
             <span className="text-red-600">Technological</span>
           </div>
